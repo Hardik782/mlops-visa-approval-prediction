@@ -1,5 +1,5 @@
 import sys
-from visa_approval_prediction.exception import USvisaException
+from visa_approval_prediction.exception import visaException
 from visa_approval_prediction.logger import logging
 from visa_approval_prediction.components.data_ingestion import DataIngestion
 from visa_approval_prediction.components.data_validation import DataValidation
@@ -50,7 +50,7 @@ class TrainPipeline:
             )
             return data_ingestion_artifact
         except Exception as e:
-            raise USvisaException(e, sys) from e
+            raise visaException(e, sys) from e
         
 
     
@@ -76,7 +76,7 @@ class TrainPipeline:
             return data_validation_artifact
 
         except Exception as e:
-            raise USvisaException(e, sys) from e
+            raise visaException(e, sys) from e
         
 
 
@@ -91,7 +91,7 @@ class TrainPipeline:
             data_transformation_artifact = data_transformation.initiate_data_transformation()
             return data_transformation_artifact
         except Exception as e:
-            raise USvisaException(e, sys)
+            raise visaException(e, sys)
         
 
     
@@ -107,7 +107,7 @@ class TrainPipeline:
             return model_trainer_artifact
 
         except Exception as e:
-            raise USvisaException(e, sys)
+            raise visaException(e, sys)
         
     
 
@@ -123,7 +123,7 @@ class TrainPipeline:
             model_evaluation_artifact = model_evaluation.initiate_model_evaluation()
             return model_evaluation_artifact
         except Exception as e:
-            raise USvisaException(e, sys)
+            raise visaException(e, sys)
         
 
     
@@ -138,7 +138,7 @@ class TrainPipeline:
             model_pusher_artifact = model_pusher.initiate_model_pusher()
             return model_pusher_artifact
         except Exception as e:
-            raise USvisaException(e, sys)
+            raise visaException(e, sys)
 
         
         
@@ -164,5 +164,5 @@ class TrainPipeline:
             model_pusher_artifact = self.start_model_pusher(model_evaluation_artifact=model_evaluation_artifact)
 
         except Exception as e:
-            raise USvisaException(e, sys)
+            raise visaException(e, sys)
         
