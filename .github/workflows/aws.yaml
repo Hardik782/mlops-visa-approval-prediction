@@ -3,8 +3,16 @@ name: Deploy Application Docker Image to EC2 instance
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'README.md'
+    paths:
+    - 'app.py'
+    - 'Dockerfile'
+    - 'requirements-lock.txt'
+    - 'setup.py'
+    - 'templates/**'
+    - 'static/**'
+    - 'config/**'
+    - 'visa_approval_prediction/**'
+    - '.github/workflows/**'
 
 env:
   ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
