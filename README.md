@@ -1,4 +1,4 @@
-# MLOps Visa Approval Prediction
+# End-to-End MLOps Pipeline for Visa Approval Prediction
 
 ## Overview
 
@@ -16,7 +16,7 @@ This project implements an end-to-end MLOps pipeline for predicting visa approva
 * Performance-based model deployment to AWS S3
 * FastAPI web application for real-time predictions
 * Dockerized deployment workflow
-* CI/CD automation using GitHub Actions, AWS ECR, and a self-hosted runner
+* CI/CD automation using GitHub Actions, Amazon ECR Public, and a self-hosted runner
 
 ---
 
@@ -79,7 +79,7 @@ GitHub Actions
 Docker Image Build
        │
        ▼
-AWS ECR
+Amazon ECR Public
        │
        ▼
 EC2 Self-Hosted Runner
@@ -89,6 +89,9 @@ Docker Container
        │
        ▼
 FastAPI Application
+       │
+       ▼
+Web Browser
 ```
 
 ---
@@ -113,8 +116,9 @@ FastAPI Application
 
 * MongoDB
 * AWS S3
-* AWS ECR
+* Amazon ECR Public
 * AWS EC2
+* AWS IAM
 
 ### DevOps
 
@@ -207,7 +211,7 @@ The repository includes a GitHub Actions workflow that automates deployment.
 Workflow steps:
 
 1. Build Docker image
-2. Push image to AWS ECR
+2. Push image to Amazon ECR Public
 3. Pull latest image on EC2 self-hosted runner
 4. Restart application container
 
